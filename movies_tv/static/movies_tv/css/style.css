@@ -80,7 +80,7 @@ button:hover {
 }
 
 
-.container {
+.box-left {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -98,8 +98,86 @@ button:hover {
     width: 75%;
     padding: 20px;
     box-sizing: border-box;
+    border: 2px black solid;
+}
+
+.container {
+    width: 100px;
+    height: 500px;
 }
 
 main img {
     width: 200px;
+}
+
+.product-shoe-info {
+    padding: 0 0 15px 0;
+    border: 1px solid #e4e4e4;
+}
+
+.item-info-product h4 a {
+    color: #080808;
+    font-size: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+span.money {
+    font-size: 1em;
+    font-weight: 800;
+    color: #ff4c4c;
+    letter-spacing: 2px;
+}
+
+.product_price {
+    margin: 1em 0 0 0;
+    padding: 1em 0 0 0;
+    border-top: 1px solid #ddd;
+}
+
+ul.stars li {
+    display: inline-block;
+}
+
+ul.stars li a span {
+    font-size: 0.7em;
+    color: #6a6c6d;
+    margin: 0 0.2em;
+}
+
+ul.stars li a span:hover {
+    opacity: 0.8;
+}
+
+span.product-new-top {
+    background: #414b52;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    padding: 0.3em 1.2em;
+    color: #fff;
+}
+
+.detail-content h3 {
+    margin-left: 10px;
+}
+
+.detail-content img {
+    float: left;
+    padding-right: 20px;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.post p {
+    margin-top: -50px;
+    margin-left: 20px;
+}
+
+.poster-description ul {
+    margin-bottom: 60px;
+}
+
+.shots img {
+    width: 280px;
 }

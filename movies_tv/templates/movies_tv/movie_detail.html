@@ -1,0 +1,66 @@
+{% extends 'movies_tv/base.html' %}
+
+{% block title %}
+Подробно о фильме
+{% endblock %}
+
+{% block content %}
+<div class="detail-content">
+    <h3><b>{{ movie.title }}</b></h3>
+    <div class="poster-description">
+        <img src="{{ movie.poster.url }}" class="img-fluid" alt=""> <br><br>
+        <ul>
+            <li style="list-style: none">
+                <span><b>Год:</b> {{ movie.year }}</span>
+            </li>
+            <li style="list-style: none">
+                <span><b>Страна:</b> {{ movie.country }}</span>
+            </li>
+            <li style="list-style: none">
+                <span><b>Слоган:</b> {{ movie.tagline }}</span>
+            </li>
+            <li style="list-style: none">
+                <span><b>Режиссер:</b>
+                    {% for director in movie.directors.all %}
+                    {{ director.name }}
+                    {% endfor %}
+                </span>
+            </li>
+            <li style="list-style: none">
+                <span><b>Актеры:</b>
+                    {% for actor in movie.actors.all %}
+                    {{ actor.name }}
+                    {% endfor %}
+                </span>
+            </li>
+            <li style="list-style: none"><span><b>Жанр:</b>
+                    {% for genre in movie.genres.all %}
+                    {{ genre.name }}
+                    {% endfor %}
+                </span></li>
+            <li style="list-style: none"><span><b>Премьера в мире:</b> {{ movie.world_premiere}}</span>
+            </li>
+            <li style="list-style: none">
+                <span><b>Бюджет:</b> ${{ movie.budget }}</span>
+            </li>
+            <li style="list-style: none">
+                <span><b>Сборы в США:</b> ${{ movie.fees_in_usa }}</span>
+            </li>
+            <li style="list-style: none"><span><b>Сборы в мире:</b> ${{ movie.fess_in_world}}
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="post">
+        <p>{{ movie.description }}</p> <br>
+    </div>
+    <div class="shots">
+        <h3>Фрагменты из фильма {{ movie.title }} </h3>
+        <ul>
+            {% for img in movie.movieshots_set.all %}
+            <li style="list-style: none"><img src="{{ img.imege.url }}" alt=""></li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}
