@@ -159,7 +159,7 @@ span.product-new-top {
 }
 
 .detail-content h3 {
-    margin-left: 10px;
+    margin-left: 20px;
 }
 
 .detail-content img {
@@ -169,15 +169,56 @@ span.product-new-top {
     margin-left: 10px;
 }
 
-.post p {
+.shots-photo p {
     margin-top: -50px;
     margin-left: 20px;
+    margin-right: 20px;
+    
 }
 
 .poster-description ul {
     margin-bottom: 60px;
 }
 
+.shots {
+    width: 100%;
+    height: 200px;
+}
+
 .shots img {
     width: 280px;
+    height: 160px;
+}
+
+.coments {
+    /* width: 400; */
+    margin-top: 200px;
+}
+
+.textarea-coment {
+    margin-left: 20px;
+}
+
+.input-txt {
+    margin-top: 300px;
+    margin-left: -260px;
+}
+
+.input-email {
+    margin-top: 380px;
+    margin-left: -215px;
+}
+
+.button {
+    margin-top: 480px;
+    margin-left: -215px;
+    padding-bottom: 20px;
+}
+
+.comments-user {
+    width: 400px;
+    margin-top: 60px;
+    margin-left: 400px;
+    border: 1px solid silver;
+    padding: 4px;
 }

@@ -51,16 +51,44 @@
             </li>
         </ul>
     </div>
-    <div class="post">
+    <div class="shots-photo">
         <p>{{ movie.description }}</p> <br>
     </div>
     <div class="shots">
-        <h3>Фрагменты из фильма {{ movie.title }} </h3>
-        <ul>
-            {% for img in movie.movieshots_set.all %}
-            <li style="list-style: none"><img src="{{ img.imege.url }}" alt=""></li>
-            {% endfor %}
-        </ul>
+        <h3>Фрагменты из фильма {{ movie.title }}</h3>
+
+        {% for img in movie.movieshots_set.all %}
+        <p><img src="{{ img.imege.url }}" alt="shots-photo-url"></p>
+        {% endfor %}
+
+        <div class="coments">
+            <form action="{% url 'add_review' movie.id %}" method="post">
+                {% csrf_token %}
+                <div class="textarea-coment">
+                    <label for="comments">Ваш коментарий *
+                    </label><textarea name="text" id="" cols="30" rows="10"></textarea>
+                </div>
+                <div class="input-txt">
+                    <label for="username">Имя *</label>
+                    <input type="text" name="name">
+                </div>
+                <div class="input-email">
+                    <label for="useremail">Email *</label>
+                    <input type="email" name="email">
+                </div><br>
+                <div class="button">
+                    <button type="submit" class="btn btn-success">Отправить</button>
+                </div>
+            </form>
+        </div>
     </div>
+</div>
+<div class="comments-user">
+    <h3>Коментарии :</h3>
+    {% for coments in movie.reviews_set.all %}
+    <p><b>Имя :</b> {{ coments.name }}</p> 
+    <p><b>Коментарий :</b> {{ coments.text }}</p>
+    <hr>
+    {% endfor %}
 </div>
 {% endblock %}
