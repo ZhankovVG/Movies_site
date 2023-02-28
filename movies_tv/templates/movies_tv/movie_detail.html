@@ -52,8 +52,8 @@
         </ul>
     </div>
     <div class="shots-photo">
-        <p>{{ movie.description }}</p> <br>
-    </div>
+        <p>{{ movie.description | safe }}</p> <br>
+    </div><br>
     <div class="shots">
         <h3>Фрагменты из фильма {{ movie.title }}</h3>
 

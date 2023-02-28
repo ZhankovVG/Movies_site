@@ -1,5 +1,17 @@
+from django import forms
 from django.contrib import admin
 from .models import *
+from django.utils.safestring import mark_safe
+
+
+from ckeditor_uploader.widgets import CKEditorUploadingWidget
+
+
+class MovieAdminForm(forms.ModelForm):
+    description = forms.CharField(label='Описание', widget=CKEditorUploadingWidget())
+    class Meta:
+        model = Movie
+        fields = '__all__'
 
 
 
@@ -25,6 +37,7 @@ class MovieAdmin(admin.ModelAdmin):
     search_fields = ('title', 'category__name')
     inlines = [ReviewInline]
     list_editable = ('draft',)
+    form = MovieAdminForm
 
 
 @admin.register(Reviews)
@@ -43,13 +56,25 @@ class GenreAdmin(admin.ModelAdmin):
 @admin.register(Actor)
 class ActorAdmin(admin.ModelAdmin):
     # Актеры
-    list_display = ('name', 'age')
+    list_display = ('name', 'age', 'get_image')
+    readonly_fields = ('get_image', )
+
+    def get_image(self, obj):
+        return mark_safe(f"<img src={obj.image.url} width='50' height='50' ")
+    
+    get_image.short_description = 'Изображение'
 
 
 @admin.register(MovieShots)
 class MovieShotsAdmin(admin.ModelAdmin):
     # Кадры из фильма
-    list_display = ('title', 'movie')
+    list_display = ('title', 'movie', 'get_image')
+    readonly_fields = ('get_image', )
+
+    def get_image(self, obj):
+        return mark_safe(f"<img src={obj.imege.url} width='50' height='50' ")
+    
+    get_image.short_description = 'Изображение'
 
 
 @admin.register(Reting)
