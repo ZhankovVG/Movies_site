@@ -1,7 +1,7 @@
 {% extends 'movies_tv/base.html' %}
 
 {% block title %}
-Подробно о фильме
+{{ movie.title }}
 {% endblock %}
 
 {% block content %}
@@ -22,14 +22,14 @@
             <li style="list-style: none">
                 <span><b>Режиссер:</b>
                     {% for director in movie.directors.all %}
-                    {{ director.name }}
+                    <a href="{{ director.get_absolute_url  }}">{{ director.name }} </a>
                     {% endfor %}
                 </span>
             </li>
             <li style="list-style: none">
                 <span><b>Актеры:</b>
                     {% for actor in movie.actors.all %}
-                    {{ actor.name }}
+                    <a href="{{ actor.get_absolute_url  }}">{{ actor.name }} </a>
                     {% endfor %}
                 </span>
             </li>
@@ -86,7 +86,7 @@
 <div class="comments-user">
     <h3>Коментарии :</h3>
     {% for coments in movie.reviews_set.all %}
-    <p><b>Имя :</b> {{ coments.name }}</p> 
+    <p><b>Имя :</b> {{ coments.name }}</p>
     <p><b>Коментарий :</b> {{ coments.text }}</p>
     <hr>
     {% endfor %}

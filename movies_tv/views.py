@@ -28,3 +28,9 @@ class AddReview(View):
             form.movie = movie
             form.save()
         return redirect(movie.get_absolute_url())
+
+
+class ActorView(DetailView):
+    model = Actor
+    template_name = 'movies_tv/actor.html'
+    slug_field = 'name'

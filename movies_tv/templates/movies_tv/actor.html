@@ -1,0 +1,32 @@
+{% extends 'movies_tv/base.html' %}
+
+{% block title %}
+{{ actor.name }}
+{% endblock %}
+
+{% block content %}
+<div class="detail-content">
+    <h3><b>{{ movie.title }}</b></h3>
+    <div class="poster-description">
+        <img src="{{ actor.image.url }}" class="img-fluid" alt=""> <br><br>
+        <ul>
+            <li style="list-style: none">
+                <span><b>Имя :</b> {{ actor.name }}</span>
+            </li>
+            <li style="list-style: none">
+                <span><b>Возраст :</b> {{ actor.age }} года</span>
+            </li>
+            <li style="list-style: none">
+                <span><b>Режиссер:</b>
+                    {% for movie in actor.film_director.all %}
+                    <a href="#"></a>{{ movie.title }}
+                    {% endfor %}
+                </span>
+            </li>
+        </ul>
+    </div>
+    <div class="shots-photo">
+        <p>{{ actor.description | safe }}</p> <br>
+    </div><br>
+</div>
+{% endblock %}

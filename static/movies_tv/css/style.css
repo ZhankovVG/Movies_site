@@ -43,6 +43,64 @@ header a.active {
     background-color: #FBC02D;
 }
 
+
+
+aside {
+    float: left;
+    background-color: rgb(255, 255, 255);
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+}
+
+/* aside img {
+    width: 230px;
+    float: left;
+    margin-left: -15px;
+    border: 1px solid rgb(8, 255, 8);
+    border-radius: 3px;
+}
+
+aside .logo {
+    font-size: 25px;
+    margin-left: 50px;
+    padding-top: 5px;
+    color: rgb(205, 240, 80);
+} */
+
+/* aside h3 {
+    margin-top: 40px;
+    font-size: 35px;
+    font-family: Apple Chancery, cursive;
+    color: #0069d9;
+} */
+
+aside ul {
+    list-style: none; 
+    text-decoration: none;
+}
+
+aside ul li {
+    margin-top: 40px;
+    color: aliceblue;
+    display: inline-block;
+    text-decoration: none;
+    transition: all .6s ease;
+    font-size: 23px;
+}
+
+aside a {
+    text-decoration: none;
+}
+
+aside ul li:hover, aside ul a:hover {
+    color: rgb(0, 0, 0);
+    transform: scale(1.1);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
 nav {
     display: flex;
     align-items: center;
@@ -170,10 +228,7 @@ span.product-new-top {
 }
 
 .shots-photo p {
-    margin-top: -50px;
-    margin-left: 20px;
-    margin-right: 20px;
-    
+    margin-left: 20px;  
 }
 
 .poster-description ul {
