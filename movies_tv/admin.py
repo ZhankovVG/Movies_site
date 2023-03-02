@@ -50,6 +50,7 @@ class ReviewsAdmin(admin.ModelAdmin):
 class GenreAdmin(admin.ModelAdmin):
     # Жанры
     list_display = ('id', 'name', 'url')
+    list_display_links = ('name',)
 
 
 @admin.register(Actor)

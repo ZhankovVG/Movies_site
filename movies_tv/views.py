@@ -5,14 +5,23 @@ from django.views.generic import ListView, DetailView
 from .forms import ReviewsForm
 
 
-class MoviesView(ListView):
+class GenreYear:
+    # Жанры и года выхода фильмов
+    def get_genres(self):
+        return Genre.objects.all()
+    
+    def get_years(self):
+        return Movie.objects.all().values('year')
+
+
+class MoviesView(GenreYear, ListView):
     # Список фильмов
     model = Movie
     queryset = Movie.objects.all()
     template_name = 'movies_tv/movie_list.html'
 
 
-class MovieDatailView(DetailView):
+class MovieDatailView(GenreYear, DetailView):
     # Полное описание фильмов
     model = Movie
     slug_field = 'url'
@@ -30,7 +39,14 @@ class AddReview(View):
         return redirect(movie.get_absolute_url())
 
 
-class ActorView(DetailView):
+class ActorView(GenreYear, DetailView):
     model = Actor
     template_name = 'movies_tv/actor.html'
     slug_field = 'name'
+
+
+class FilterMovieView(GenreYear, ListView):
+    # Фильтр фильмов
+    def get_queryset(self):
+        queryset = Movie.objects.filter(year__in = self.queryset.GET.getlist('year'))
+        return queryset

@@ -1,4 +1,5 @@
 {% extends 'movies_tv/base.html' %}
+{% load static %}
 
 {% block title %}
 Главная страница
@@ -6,19 +7,33 @@
 
 {% block content %}
 <aside>
-    <ul>
-        <a href="#">
-            <li>Жанры</li>
-        </a>
-        <a href="#">
-            <li></li>
-        </a><br>
-        <a href="#">
-            <li></li>
-        </a>
-        <a href="#"><li><button class="btn btn-info">Найти</button></li></a>
-        </a>
-    </ul>
+    <img src="{% static 'movies_tv/img/logo_movie.png' %}" alt="foto">
+    <div>
+        <ul>
+            <h3>Жанры</h3>
+            {% for genre in view.get_genres %}
+            <li>
+                <input type="checkbox" class="checked">
+                <span>{{ genre.name }}</span>
+            </li>
+            {% endfor %}
+    </div>
+
+    <form action="" method="get">
+        <div>
+            <ul>
+                <h3>Года</h3>
+                {% for movie in view.get_years %}
+                <li>
+                    <input type="checkbox">
+                    <span class="year-movie">{{ movie.year }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </form>
+    <button class="btn btn-info" type="submit">Найти</button>
+
 </aside>
 
 <div>

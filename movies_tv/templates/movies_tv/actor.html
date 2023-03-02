@@ -17,7 +17,7 @@
                 <span><b>Возраст :</b> {{ actor.age }} года</span>
             </li>
             <li style="list-style: none">
-                <span><b>Режиссер:</b>
+                <span><b>Режиссер фильмов:</b>
                     {% for movie in actor.film_director.all %}
                     <a href="#"></a>{{ movie.title }}
                     {% endfor %}
