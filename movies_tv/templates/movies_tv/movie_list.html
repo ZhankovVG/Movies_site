@@ -7,32 +7,33 @@
 
 {% block content %}
 <aside>
-    <img src="{% static 'movies_tv/img/logo_movie.png' %}" alt="foto">
-    <div>
-        <ul>
-            <h3>Жанры</h3>
-            {% for genre in view.get_genres %}
-            <li>
-                <input type="checkbox" class="checked">
-                <span>{{ genre.name }}</span>
-            </li>
-            {% endfor %}
-    </div>
-
-    <form action="" method="get">
+    <!-- <img src="{% static 'movies_tv/img/logo_movie.png' %}" alt="foto"> -->
+    <form action="{% url 'filter' %}" method="get">
         <div>
+            <h3>Жанры</h3>
             <ul>
-                <h3>Года</h3>
-                {% for movie in view.get_years %}
+                {% for genre in view.get_genres %}
                 <li>
-                    <input type="checkbox">
-                    <span class="year-movie">{{ movie.year }}</span>
-                </li>
+                    <input type="checkbox" class="checked" name="genre" value="{{ genre.name }}">
+                    <span>{{ genre.name }}</span>
+                </li><br>
                 {% endfor %}
             </ul>
         </div>
+
+        <div>
+            <h3>Года</h3>
+            <ul>
+                {% for movie in view.get_years %}
+                <li>
+                    <input type="checkbox" class="checkbox" name="year" value="{{ movie.year }}"><br>
+                    <span class="year-movie">{{ movie.year }}</span><br>
+                </li><br>
+                {% endfor %}
+            </ul>
+            <button class="btn btn-info" type="submit">Найти</button>
+        </div>
     </form>
-    <button class="btn btn-info" type="submit">Найти</button>
 
 </aside>
 

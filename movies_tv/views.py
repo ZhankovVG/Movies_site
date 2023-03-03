@@ -3,6 +3,8 @@ from django.views.generic.base import View
 from .models import *
 from django.views.generic import ListView, DetailView
 from .forms import ReviewsForm
+from django.db.models import Q
+
 
 
 class GenreYear:
@@ -11,13 +13,13 @@ class GenreYear:
         return Genre.objects.all()
     
     def get_years(self):
-        return Movie.objects.all().values('year')
+        return Movie.objects.filter(draft=False).values('year')
 
 
 class MoviesView(GenreYear, ListView):
     # Список фильмов
     model = Movie
-    queryset = Movie.objects.all()
+    queryset = Movie.objects.filter(draft=False)
     template_name = 'movies_tv/movie_list.html'
 
 
@@ -48,5 +50,9 @@ class ActorView(GenreYear, DetailView):
 class FilterMovieView(GenreYear, ListView):
     # Фильтр фильмов
     def get_queryset(self):
-        queryset = Movie.objects.filter(year__in = self.queryset.GET.getlist('year'))
+        queryset = Movie.objects.filter(
+            Q(year__in=self.request.GET.getlist('year')) | 
+            Q(genres__in=self.request.GET.getlist('genre'))
+        )
         return queryset
+    
