@@ -37,6 +37,7 @@ class MovieAdmin(admin.ModelAdmin):
     inlines = [ReviewInline]
     list_editable = ('draft',)
     form = MovieAdminForm
+    prepopulated_fields = {"url" : ("title",)}
 
 
 @admin.register(Reviews)

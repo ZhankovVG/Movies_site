@@ -62,9 +62,9 @@
         {% endfor %}
 
         <div class="coments">
-            <form action="{% url 'add_review' movie.id %}" method="post">
+            <form class="coments" action="{% url 'add_review' movie.id %}" method="post">
                 {% csrf_token %}
-                <div class="textarea-coment">
+                <div>
                     <label for="comments">Ваш коментарий *
                     </label><textarea name="text" id="" cols="30" rows="10"></textarea>
                 </div>
