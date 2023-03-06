@@ -281,10 +281,11 @@ span.product-new-top {
 }
 
 .comments-user {
+    position: absolute;
     width: 400px;
-    margin-top: 60px;
+    height: 300px;
+    margin-top: 40px;
     margin-left: 400px;
-    border: 1px solid silver;
     padding: 4px;
 }
 

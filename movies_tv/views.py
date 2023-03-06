@@ -27,6 +27,7 @@ class MovieDatailView(GenreYear, DetailView):
     # Полное описание фильмов
     model = Movie
     slug_field = 'url'
+    form = ReviewsForm
 
 
 class AddReview(View):
@@ -56,3 +57,8 @@ class FilterMoviesView(GenreYear, ListView):
         )
         return queryset
     
+
+class Search(GenreYear, ListView):
+    # поиск фильмов
+    def get_queryset(self):
+        return Movie.objects.filter(title__icontains=self.request.GET.get('search'))

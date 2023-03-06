@@ -45,6 +45,8 @@ class ReviewsAdmin(admin.ModelAdmin):
     # Отзывы
     list_display = ('id', 'name', 'email', 'parent', 'movie')
     readonly_fields = ('name', 'email')
+    list_display_links = ('name',)
+
 
 
 @admin.register(Genre)
