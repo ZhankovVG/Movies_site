@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 {% load static recaptcha3 %}
+{% load account %}
+
 <html lang="en">
 
 <head>
@@ -21,10 +23,16 @@
             <a href="{% url 'home' %}" class="logo">Мой сайт про фильмы</a>
         </div>
         <nav>
+            {% csrf_token %}
             <a class="active" href="{% url 'home' %}">Главная</a>
-            <a href="№">Сериалы</a>
+            <a href="#">Сериалы</a>
             <a href="#">Боевики</a>
-            <a href="#">Комедии</a>
+            {% if user.is_authenticated %}
+            <a href="{% url 'account_logout' %}">Выход</a>
+            {% else %}
+            <a href="{% url 'account_login' %}">Вход</a>
+            <a href="{% url 'account_signup' %}">Регистрация</a>
+            {% endif %}
         </nav>
     </header>
 

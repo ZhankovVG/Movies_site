@@ -38,11 +38,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'movies_tv',
     'ckeditor',
     'ckeditor_uploader',
     'snowpenguin.django.recaptcha3',
     'captcha',
+    'allauth',
+    'allauth.account',
     
 ]
 
@@ -88,6 +91,12 @@ DATABASES = {
 }
 
 
+# AUTHENTICATION_BACKENDS = [
+#     'django.contrib.auth.backends.ModelBackend',
+#     'allauth.account.auth_backends.AuthenticationBackend',
+# ]
+
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -117,6 +126,8 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+LOGIN_REDIRECT_URL = '/'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -213,3 +224,12 @@ RECAPTCHA_PUBLIC_KEY = '6LfSbNkkAAAAAJsvwUsQxHaEzyHzdmzpj6ahlKAJ'
 RECAPTCHA_PRIVATE_KEY = '6LfSbNkkAAAAAOcdpjbQihvTm21D63LxNrBCidPK'
 RECAPTCHA_DEFAULT_ACTION = 'generic'
 RECAPTCHA_SCORE_THRESHOLD = 0.5
+
+
+SITE_ID = 1
+
+
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'
+# ACCOUNT_SIGNUP_ENABLED = True
+# ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+# LOGIN_REDIRECT_URL = '/'

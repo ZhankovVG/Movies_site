@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.views.generic.base import View
 from .models import *
-from django.views.generic import ListView, DetailView
-from .forms import ReviewsForm
+from django.views.generic import ListView, DetailView, CreateView
+from .forms import *
 from django.db.models import Q
+from django.contrib.auth.forms import UserCreationForm
 
 
 

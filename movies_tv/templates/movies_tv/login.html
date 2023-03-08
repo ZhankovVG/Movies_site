@@ -1,0 +1,16 @@
+{% extends 'account/base.html' %}
+{% load account %}
+
+{% block title %}
+Регистрация
+{% endblock %}
+
+{% block content %}
+<div>
+    <form action="" method="post">
+        {% csrf_token %}
+
+    </form>
+    <button type="submit">Регистрация</button>
+</div>
+{% endblock %}
