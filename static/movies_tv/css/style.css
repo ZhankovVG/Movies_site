@@ -43,6 +43,10 @@ header a.active {
     background-color: #FBC02D;
 }
 
+header span {
+    color: rgb(255, 230, 0);
+}
+
 .search {
     margin-top: 5px;
 }

@@ -23,11 +23,11 @@
             <a href="{% url 'home' %}" class="logo">Мой сайт про фильмы</a>
         </div>
         <nav>
-            {% csrf_token %}
             <a class="active" href="{% url 'home' %}">Главная</a>
             <a href="#">Сериалы</a>
             <a href="#">Боевики</a>
             {% if user.is_authenticated %}
+            <span>{{ user.username }}</span>
             <a href="{% url 'account_logout' %}">Выход</a>
             {% else %}
             <a href="{% url 'account_login' %}">Вход</a>

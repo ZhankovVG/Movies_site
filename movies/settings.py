@@ -128,6 +128,10 @@ USE_I18N = True
 USE_TZ = True
 
 LOGIN_REDIRECT_URL = '/'
+ACCOUNT_EMAIL_CONFIRMATION_EXPIRE_DAYS = 1
+ACCOUNT_USERNAME_MIN_LENGTH = 4
+
+EMAIL_BACKEND = 'django.core.mail.backends.dummy.EmailBackend'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -232,4 +236,3 @@ SITE_ID = 1
 # ACCOUNT_AUTHENTICATION_METHOD = 'email'
 # ACCOUNT_SIGNUP_ENABLED = True
 # ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
-# LOGIN_REDIRECT_URL = '/'
